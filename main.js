@@ -68,10 +68,10 @@ const cone = new THREE.Mesh(coneGeometry);
 const coneVertices = cone.geometry.attributes.position.array.slice();
 
 
-const colorMap = loader.load('./Portfolio/textures/00_earthmap1k.jpg');
-const elevMap = loader.load('./Portfolio/textures/01_earthbump1k.jpg');
-const alphaMask = loader.load('./Portfolio/textures/02_earthspec1k.jpg');
-const population = loader.load('./Portfolio/textures/population.jpg');
+const colorMap = loader.load('textures/00_earthmap1k.jpg');
+const elevMap = loader.load('textures/01_earthbump1k.jpg');
+const alphaMask = loader.load('textures/02_earthspec1k.jpg');
+const population = loader.load('textures/population.jpg');
 
 const geometry = new THREE.IcosahedronGeometry(1, 10);
 const material = new THREE.MeshBasicMaterial( { color: 0x0066aa, wireframe: true, transparent: true, opacity: 0.1} );
