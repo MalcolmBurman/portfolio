@@ -3,6 +3,67 @@
 
 body{margin: 0; overflow: hidden;}
 
+
+@media only screen and (max-width: 600px) {
+    body {
+        margin: 0;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+    }
+    h1{
+        font-size: 2em;
+    }
+
+    .nav-link{
+        font-size: 2em;
+    }
+    
+    .navbar-nav{
+    position: fixed  !important;
+    top: 2%  !important;
+    left: 3%  !important;
+    }
+
+    .toggleGeometry{
+        margin: 0;
+        position: fixed !important;
+        bottom: 3% !important;
+        left: 14% !important;
+    }
+    
+    .layoutContainer{
+        padding: 0em !important;
+        margin: 0;
+        height: 600px !important;
+        width: 140vw !important;
+        overflow-y: scroll;
+        columns: 1;
+        column-gap: 1em;
+    }
+    
+
+    .project img {
+        width: 12rem !important; 
+        height: 10rem !important;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        object-fit: contain;
+        padding-bottom: 1rem;
+    }
+
+    .project-container {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(15.5em, 1fr)) !important;
+        grid-gap: 1rem;
+    }
+    
+    
+}
+
+
+
 .top{
     margin: 0;
     position: absolute;
@@ -256,4 +317,59 @@ a{
     border: none;
     background-color: transparent;
   }
-  
+
+   
+.contact {
+    position: relative;
+    height: 50px;
+    padding: 0 30px;
+    border: 2px solid #fff;
+    background: #000;
+    user-select: none;
+    white-space: nowrap;
+    transition: all .05s linear;
+    font-family: inherit;
+   }
+   
+   .contact:before, .contact:after {
+    content: "";
+    position: absolute;
+    background: #000;
+    transition: all .2s linear;
+   }
+   
+   .contact:before {
+    width: calc(100% + 6px);
+    height: calc(100% - 16px);
+    top: 8px;
+    left: -3px;
+   }
+   
+   .contact:after {
+    width: calc(100% - 16px);
+    height: calc(100% + 6px);
+    top: -3px;
+    left: 8px;
+   }
+   
+   
+   .contact:active {
+    transform: scale(0.95);
+   }
+   
+   .contact:hover:before {
+    height: calc(100% - 32px);
+    top: 16px;
+   }
+   
+   .contact:hover:after {
+    width: calc(100% - 32px);
+    left: 16px;
+   }
+   
+   .contact span {
+    font-size: 15px;
+    z-index: 3;
+    position: relative;
+    font-weight: 600;
+   }

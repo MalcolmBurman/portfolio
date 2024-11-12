@@ -6,12 +6,6 @@ import { OrbitControls } from 'https://unpkg.com/three@0.126.1/examples/jsm/cont
 const w = window.innerWidth;
 const h = window.innerHeight;
 const renderer = new THREE.WebGLRenderer({ antialias: true});
-renderer.setPixelRatio( window.devicePixelRatio);
-renderer.setClearColor(0x000000);
-renderer.setSize(w,h);
-document.body.appendChild(renderer.domElement);
-const loader = new THREE.TextureLoader();
-let indx = 0.0;
 
 //Camera
 const fov = 50;
@@ -23,17 +17,40 @@ camera.position.z = 3;
 camera.position.x = -1;
 const scene = new THREE.Scene();
 
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
-controls.dampingFactor = 0.1;
-camera.setViewOffset(w, h, -400, 0, w, h,);
-controls.enablePan = false;
-controls.minDistance = 1.2; 
-controls.maxDistance = 4;
 
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 const uvPoint = new THREE.Vector2();
+
+
+//Media queries for mobile devices
+const mediaQuery = window.matchMedia("(max-width: 600px)");
+console.log(mediaQuery);
+ 
+if (mediaQuery.matches) {
+
+renderer.setPixelRatio( window.devicePixelRatio * 0.4);
+renderer.setSize(w,h);
+document.body.appendChild(renderer.domElement);
+
+}else{
+renderer.setPixelRatio( window.devicePixelRatio);
+renderer.setSize(w,h);
+document.body.appendChild(renderer.domElement);
+camera.setViewOffset(w, h, -400, 0, w, h,);
+}
+
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.1;
+
+controls.enablePan = false;
+controls.minDistance = 1.2; 
+controls.maxDistance = 4;
+
+const loader = new THREE.TextureLoader();
+let indx = 0.0;
 
 
 //objects
@@ -317,7 +334,6 @@ function animate(t = 0){
         positionAttributes.setX(i-1, x + normalizedT * Math.sin(x * y * z * 10) * 0.01);
         positionAttributes.setY(i, y + normalizedT * Math.sin(x * y * z * 10) * 0.01);
         positionAttributes.setZ(i, z + normalizedT* Math.cos(z * x * z * 15) * 0.005);
-        points2.material.size = 0.01 + Math.sin(t * 0.002) * 0.01;
       }
       mesh.geometry.attributes.position.needsUpdate = true;
       points.geometry.attributes.position.needsUpdate = true;
