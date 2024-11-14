@@ -22,14 +22,14 @@ body{margin: 0; overflow: hidden;}
     .navbar-nav{
     position: fixed  !important;
     top: 2%  !important;
-    left: 3%  !important;
+    left: 7%  !important;
     }
 
     .toggleGeometry{
         margin: 0;
         position: fixed !important;
         bottom: 3% !important;
-        left: 14% !important;
+        left: 10% !important;
     }
     
     .layoutContainer{
@@ -55,7 +55,7 @@ body{margin: 0; overflow: hidden;}
 
     .project-container {
         display: grid;
-        grid-template-columns: repeat(2, minmax(15.5em, 1fr)) !important;
+        grid-template-columns: repeat(2, minmax(17em, 1fr)) !important;
         grid-gap: 1rem;
     }
     
