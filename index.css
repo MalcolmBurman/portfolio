@@ -8,6 +8,14 @@ body{margin: 0; overflow: hidden;}
     content: "Technologies" !important;
 }
 
+video::-webkit-media-controls-volume-slider {
+    display: none; /* Hides the volume slider */
+  }
+  
+  video::-webkit-media-controls-mute-button {
+    display: none; /* Hides the mute button */
+  }
+
 
 @media only screen and (max-width: 1000px) {
     body {
@@ -106,6 +114,10 @@ body{margin: 0; overflow: hidden;}
     .linkedin-btn {
         padding-right: 12.5px !important;
     }
+
+    .layoutContainer video{
+        width: 100% !important;
+    }
 }
 
 
@@ -181,6 +193,13 @@ p{
 }
 
 .layoutContainer img{
+    display: block;
+    width: 270px;
+    padding-bottom: 1em;
+    will-change: opacity;
+}
+
+.layoutContainer video{
     display: block;
     width: 270px;
     padding-bottom: 1em;
