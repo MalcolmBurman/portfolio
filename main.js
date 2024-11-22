@@ -24,22 +24,24 @@ const uvPoint = new THREE.Vector2();
 
 
 //Media queries for mobile devices
-const mediaQuery = window.matchMedia("(max-width: 600px)");
-console.log(mediaQuery);
+const mediaQuery = window.matchMedia("(max-width: 1100px)");
+const mediaQueryPixelRatio = window.matchMedia("(device-pixel-ratio: 1.5), (max--moz-device-pixel-ratio:1.49), (-webkit-max-device-pixel-ratio:1.99)");
  
-if (mediaQuery.matches) {
+if (mediaQuery.matches && mediaQueryPixelRatio.matches) {
 
-renderer.setPixelRatio( window.devicePixelRatio * 0.4);
-renderer.setSize(w,h);
-document.body.appendChild(renderer.domElement);
-
+  const pixelRatio = window.devicePixelRatio;
+  const newPixelRatio = Math.min(1.5, pixelRatio * 0.9);
+  renderer.setPixelRatio(newPixelRatio);
+}else if(mediaQuery.matches && !mediaQueryPixelRatio.matches){
+  renderer.setPixelRatio( window.devicePixelRatio);
+  
 }else{
-renderer.setPixelRatio( window.devicePixelRatio);
-renderer.setSize(w,h);
-document.body.appendChild(renderer.domElement);
-camera.setViewOffset(w, h, -400, 0, w, h,);
+  renderer.setPixelRatio( window.devicePixelRatio);
+  camera.setViewOffset(w, h, -400, 0, w, h,);
 }
 
+renderer.setSize(w,h);
+document.body.appendChild(renderer.domElement);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
