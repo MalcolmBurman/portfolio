@@ -92,7 +92,7 @@ video::-webkit-media-controls-volume-slider {
     .project-container {
         display: grid !important;
         width: 100% !important;
-        grid-template-columns: repeat(1, minmax(3em, 1fr)) !important;
+        grid-template-columns: repeat(2, minmax(3em, 1fr)) !important;
         grid-gap: 1rem;
         position: relative;
         left: -2.5% !important;
